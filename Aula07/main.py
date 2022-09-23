@@ -6,15 +6,17 @@ from arvore import Tree
 
 arv = Tree()
 print("Programa Arvore Binaria")
-opcao = 0
-while opcao != 5:
+opcao = 999
+while opcao != 0:
      print("***********************************")
      print("Entre com a opcao:")
+     print(" --- 0: Sair do programa")
      print(" --- 1: Inserir")
      print(" --- 2: Excluir")
      print(" --- 3: Pesquisar")
-     print(" --- 4: Exibir")
-     print(" --- 5: Sair do programa")
+     print(" --- 4: Imprimir")
+     print(" --- 5: Somar")
+     print(" --- 6: Média")
      print("***********************************")
      opcao = int(input("-> "))
      if opcao == 1:
@@ -31,6 +33,10 @@ while opcao != 5:
           else:
                print(" Valor nao encontrado!")	 
      elif opcao == 4:
-          arv.caminhar()
+          arv.imprimir()
      elif opcao == 5:
+          print(" A soma dos elementos da ABB é: %d" %(arv.somarNos(arv.root)))
+     elif opcao == 6:
+          print(arv.media())
+     elif opcao == 0:
           break

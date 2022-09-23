@@ -181,6 +181,21 @@ class Tree:
         else:
              return  1 + self.contarNos(atual.esq) + self.contarNos(atual.dir)
 
+     def somarNos(self, atual):
+        if atual == None:
+             return 0
+        else:
+             return  atual.item + self.somarNos(atual.esq) + self.somarNos(atual.dir)
+
+     def media(self):
+          soma = self.somarNos(self.root)
+          qtd = self.contarNos(self.root)
+          if qtd > 0:
+               media = float(soma / qtd)
+          else:
+               media = 0
+          print(" Média dos nós: %d" %(media))
+
      def minn(self):
          atual = self.root
          anterior = None
@@ -197,7 +212,7 @@ class Tree:
               atual = atual.dir
          return anterior
 
-     def caminhar(self):
+     def imprimir(self):
           print(" Exibindo em ordem: ",end="")
           self.inOrder(self.root)
           print("\n Exibindo em pos-ordem: ",end="")
@@ -207,6 +222,8 @@ class Tree:
           print("\n Altura da arvore: %d" %(self.altura(self.root)))
           print(" Quantidade de folhas: %d"  %(self.folhas(self.root)))
           print(" Quantidade de Nós: %d" %(self.contarNos(self.root)))
+          print(" Soma dos Nós: %d" %(self.somarNos(self.root)))
+          self.media()
           if self.root != None: # se arvore nao esta vazia
              print(" Valor minimo: %d" %(self.minn().item))
              print(" Valor maximo: %d" %(self.maxx().item))
