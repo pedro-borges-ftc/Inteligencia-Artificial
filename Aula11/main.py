@@ -7,6 +7,7 @@ idades = []
 sexos = []
 pesos = []
 temperaturas = []
+nomes = []
 
 ## Função de leitura dos dados no arquivo txt
 def lerArquivo():
@@ -15,6 +16,7 @@ def lerArquivo():
     for linha in ref_arq_hospital:
         valores = linha.split()
         print(valores)
+        nomes.append(valores[1])
         idades.append(float(valores[2]))
         sexos.append(valores[3])
         pesos.append(float(valores[4]))
@@ -26,6 +28,7 @@ def lerArquivo():
 ## Função de impressão dos dados lidos no arquivo
 def imprimirDados():
     print("******DADOS LIDOS NO ARQUIVO*******")
+    print("Nomes: ",nomes)
     print("Idades: ",idades)
     print("Sexos: ",sexos)
     print("Pesos: ",pesos)
@@ -35,7 +38,6 @@ def imprimirDados():
 def calcularMedias():
     print("******Médias*******")
     print("Idades: ",np.average(idades))
-    #print("Sexos: ",np.average(sexos))
     print("Pesos: ",np.average(pesos))
     print("Temperaturas: ",np.average(temperaturas))
 
@@ -43,7 +45,6 @@ def calcularMedias():
 def calcularDesvioPadrao():
     print("******Desvio Padrão*******")
     print("Idades: ",np.std(idades))
-    #print("Sexos: ",np.std(sexos))
     print("Pesos: ",np.std(pesos))
     print("Temperaturas: ",np.std(temperaturas))
 
@@ -51,18 +52,16 @@ def calcularDesvioPadrao():
 def calcularVariancias():
     print("******Variâncias*******")
     print("Idades: ",np.var(idades))
-    #print("Sexos: ",np.var(sexos))
     print("Pesos: ",np.var(pesos))
     print("Temperaturas: ",np.var(temperaturas))
 
 ## Função para o cálculo das modas
 def calcularModas():
     print("******Modas*******")
-    #print("Idades: ",statistics.mode((idades))
     print("Sexos: ") 
     print(statistics.mode(sexos))
-    #print("Pesos: ",statistics.mode((pesos))
-    #print("Temperaturas: ",statistics.mode((temperaturas))
+    print("Nomes: ") 
+    print(statistics.mode(nomes))
 
 ## INÍCIO DO PROGRAMA
 print("Início do Programa Hospital")
@@ -79,6 +78,7 @@ while opcao != 0:
     print(" --- 5: Calcular desvio padrão")
     print(" --- 6: Calcular variâncias")
     print(" --- 7: Gráfico Idades X Pesos")
+    print(" --- 8: Gráfico Nomes X Temperaturas")
     print("***********************************")
     opcao = int(input("-> "))
 
@@ -97,6 +97,10 @@ while opcao != 0:
     elif opcao ==7:
         #Gráfico X , Y
         plt.plot(idades, pesos, 'go')
+        plt.show()
+    elif opcao ==8:
+        #Gráfico X , Y
+        plt.plot(nomes, temperaturas)
         plt.show()
     elif opcao == 0:
           break
