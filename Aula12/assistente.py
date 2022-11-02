@@ -51,7 +51,7 @@ def ouvir_microfone():
         print('Não entendi')
 
         return frase
-    ## FIM - Função para ouvir e reconhecer a fala
+## FIM - Função para ouvir e reconhecer a fala
 
 ## INÍCIO DO PROGRAMA
 print("Início do Programa Assistente Pessoal")
