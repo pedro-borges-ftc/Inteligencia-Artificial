@@ -2,20 +2,14 @@ from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot import ChatBot
 
-bot = ChatBot('Pegasus')
-
-#conversa = ['Oi', 'Olá', 'Tudo bem?', 'Tudo ótimo', 'Você gosta de programar?', 'Sim, eu programo em Python']
-
-#bot.set_trainer(ListTrainer)
-#bot.train(conversa)
+bot = ChatBot('Pégasus')
 conversa = ChatterBotCorpusTrainer(bot)
-#conversa.train('chatterbot.corpus.portuguese')
 conversa = ListTrainer(bot)
 
 conversa.train([
     'Oi?', 'Eae, tudo certo?',
-    'Qual o seu nome?', 'Pegasus, seu amigo bot',
-    'Por que seu nome é Pegasus?', 'Pegasus é meu nome, sou um chatbot criado para diversão',
+    'Qual o seu nome?', 'Pégasus, seu amigo bot',
+    'Por que seu nome é Pégasus?', 'Pégasus é meu nome, sou um chatbot criado para diversão',
     'Prazer em te conhecer', 'Igualmente meu querido',
     'Quantos anos você tem?','Eu nasci em 2022, faz as contas, rs.',
     'Você gosta de videogame?', 'Eu sou um bot, eu só apelo.',
@@ -34,10 +28,11 @@ conversa.train([
     'Errado', 'Você não sabe de nada, John Snow.'
     ])
 
+print("####Início da interação do Chatbot####")
 while True:
     pergunta = input("Usuário: ")
     resposta = bot.get_response(pergunta)
     if float(resposta.confidence) > 0.5:
-        print('Pegasus: ', resposta)
+        print('Pégasus: ', resposta)
     else:
-        print('Pegasus: Ainda não sei responder esta pergunta')
+        print('Pégasus: Ainda não sei responder esta pergunta')
