@@ -125,18 +125,23 @@ class Application:
         self.bntExcluir["command"] = self.excluirUsuario
         self.bntExcluir.pack(side=LEFT)
 
+        self.bntLimpar = Button(self.container8, text="Limpar", font=self.fonte, width=12)
+        self.bntLimpar["command"] = self.limparCampos
+        self.bntLimpar.pack(side=LEFT)
+
         print("Criação de Label no 9º Container - MENSAGEM")
         self.lblmsg = Label(self.container9, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
     def limparCampos(self):
-            self.txtidusuario.delete(0, END)
-            self.txtnome.delete(0, END)
-            self.txttelefone.delete(0, END)
-            self.txtemail.delete(0, END)
-            self.txtusuario.delete(0, END)
-            self.txtsenha.delete(0, END)
+        print("limparCampos")
+        self.txtidusuario.delete(0, END)
+        self.txtnome.delete(0, END)
+        self.txttelefone.delete(0, END)
+        self.txtemail.delete(0, END)
+        self.txtusuario.delete(0, END)
+        self.txtsenha.delete(0, END)
 
     def inserirUsuario(self):
         user = Usuarios()
@@ -146,11 +151,9 @@ class Application:
         user.email = self.txtemail.get()
         user.usuario = self.txtusuario.get()
         user.senha = self.txtsenha.get()
-
+        
         self.lblmsg["text"] = user.insertUser()
         print(self.lblmsg["text"])
-
-        self.limparCampos
 
     def alterarUsuario(self):
         user = Usuarios()
@@ -161,27 +164,23 @@ class Application:
         user.email = self.txtemail.get()
         user.usuario = self.txtusuario.get()
         user.senha = self.txtsenha.get()
-
+        
         self.lblmsg["text"] = user.updateUser()
         print(self.lblmsg["text"])
-
-        self.limparCampos
 
     def excluirUsuario(self):
         user = Usuarios()
 
         user.idusuario = self.txtidusuario.get()
-
+        
         self.lblmsg["text"] = user.deleteUser()
         print(self.lblmsg["text"])
-
-        self.limparCampos
 
     def buscarUsuario(self):
         user = Usuarios()
 
         idusuario = self.txtidusuario.get()
-
+        
         self.lblmsg["text"] = user.selectUser(idusuario)
         print(self.lblmsg["text"])
 
