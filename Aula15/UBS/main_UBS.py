@@ -15,7 +15,6 @@ BAIRRO = []
 LATITUDE = []
 LONGITUDE = []
 
-
 ## Função de leitura dos dados no arquivo txt
 def lerArquivo():
     print("Início da leitura do arquivo")
@@ -27,7 +26,7 @@ def lerArquivo():
         print(valores)
         if valores[0] != 'CNES':    #Esse teste pula a 1ª linha
             CNES.append(valores[0])
-            UF.append(float(valores[1]))
+            UF.append(ufPorCodigoIBGE(valores[1]))
             IBGE.append(float(valores[2]))
             NOME.append(valores[3])
             LOGRADOURO.append(valores[4])
@@ -149,6 +148,7 @@ while opcao != 0:
     print(" --- 3: Qual a quantidade de UBS na Bahia?")
     print(" --- 4: Qual a quantidade de UBS em Itabuna?")
     #print(" --- 5: Processamento Dados")
+    print(" --- 6: Qual a quantidade de UBS por cidade?")
     print("***********************************")
     opcao = int(input("-> "))
 
@@ -162,5 +162,7 @@ while opcao != 0:
         quantidadeUbsPorCidade('291480')    #itabuna
     elif opcao == 5:
         processamentoDeDados()
+    elif opcao == 6:
+        quantidadeUbsPorCidade()
     elif opcao == 0:
           break

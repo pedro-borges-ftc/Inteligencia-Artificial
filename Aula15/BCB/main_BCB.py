@@ -24,10 +24,10 @@ def IPCA_acumulado():
     mpl.style.use('bmh')
     df = sgs.get({'IPCA': 433}, start='2002-02-01')
     df.index = df.index.to_period('M')
-    #print(df.head())
+    print("IPCA 1",df.head())
     dfr = df.rolling(12)
     i12 = dfr.apply(lambda x: (1 + x/100).prod() - 1).dropna() * 100
-    #print(i12.head())
+    print("IPCA Acumulado",i12.head())
     i12.plot(figsize=(12,6))
     plt.title('Fonte: https://dadosabertos.bcb.gov.br', fontsize=10)
     plt.suptitle('IPCA acumulado 12 meses - Janela Móvel', fontsize=18)
@@ -41,7 +41,7 @@ def ConversorMoedas():
     print('*** Conversor de Moedas ***')
     df = currency.get(['USD', 'EUR', 'CNY', 'GBP'],     
                   start='2000-01-01',
-                  end='2021-01-01',
+                  end='2022-10-01',
                   side='ask')
     print(df.head())
     df.plot(figsize=(12, 6))
