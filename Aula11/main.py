@@ -95,12 +95,16 @@ while opcao != 0:
        calcularDesvioPadrao()
     elif opcao == 6:
        calcularVariancias()
-    elif opcao ==7:
+    elif opcao == 7:
         #Gráfico X , Y
+        plt.xlabel('Idades')
+        plt.ylabel('Pesos')
         plt.plot(idades, pesos, 'go')
         plt.show()
-    elif opcao ==8:
+    elif opcao == 8:
         #Gráfico X , Y
+        plt.xlabel('Nomes')
+        plt.ylabel('Temperaturas')
         plt.plot(nomes, temperaturas)
         plt.show()
     elif opcao == 0:
