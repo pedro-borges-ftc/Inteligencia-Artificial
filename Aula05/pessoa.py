@@ -15,3 +15,7 @@ class Pessoa:
 
     def getIdade(self):
         return self.idade
+    
+    def imprime(self):
+        print('Nome: ' + self.nome)
+        print('Idade: ' + str(self.idade))

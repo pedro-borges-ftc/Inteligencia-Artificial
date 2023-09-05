@@ -4,7 +4,7 @@ from cliente import Cliente
 
 #Leia o nome, idade e CPF de uma pessoa 
 nome = input('Digite o seu nome: ')
-idade = input('Digite a sua idade: ')
+idade = int(input('Digite a sua idade: '))
 cpf = input('Digite o seu cpf: ')
 
 #Importação da classe Pessoa Física
