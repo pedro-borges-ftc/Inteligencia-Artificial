@@ -40,8 +40,8 @@ def IPCA_acumulado():
 def ConversorMoedas():
     print('*** Conversor de Moedas ***')
     df = currency.get(['USD', 'EUR', 'CNY', 'GBP'],     
-                  start='2000-01-01',
-                  end='2022-10-01',
+                  start='2023-01-01',
+                  end='2023-08-01',
                   side='ask')
     print(df.head())
     df.plot(figsize=(12, 6))

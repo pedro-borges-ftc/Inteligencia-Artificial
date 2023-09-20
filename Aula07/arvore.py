@@ -1,5 +1,5 @@
 # Criado por: prof. Pedro Borges
-# pborges.ita@ftc.edu.br
+# pedro.borges@ftc.edu.br
 
 from no import No
 
