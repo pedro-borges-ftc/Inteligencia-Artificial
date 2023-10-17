@@ -1,74 +1,12 @@
 from perceptron import Perceptron
 
-## Função de leitura das amostras no arquivo txt
-def leituraAmostras():
-        # Leitura do arquivo de dados de amostras
-    ref_arq_amostras = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula10/amostras.txt","r")
-    amostras = []
-    for linha in ref_arq_amostras:
-        amostra = []
-        valores = linha.split()
-        amostra.insert(0,float(valores[0]))
-        amostra.insert(1,float(valores[1]))
-        amostras.append(amostra)
-    ref_arq_amostras.close()
-    print('Amostras: ')
-    print(amostras)
-    return amostras
+amostras = [[0.72, 0.82], [0.91, -0.69],[0.46, 0.80], [0.03, 0.93], [0.12, 0.25], [0.96, 0.47], [0.8, -0.75], [0.46, 0.98], [0.66, 0.24], [0.72, -0.15], [0.35, 0.01], [-0.16, 0.84], [-0.04, 0.68], [-0.11, 0.1], [0.31, -0.96], [0.0, -0.26],[-0.43, -0.65], [0.57, -0.97], [-0.47, -0.03], [-0.72, -0.64], [-0.57, 0.15], [-0.25, -0.43], [0.47, -0.88], [-0.12, -0.9], [-0.58, 0.62], [-0.48, 0.05], [-0.79, -0.92], [-0.42, -0.09], [-0.76, 0.65], [-0.77, -0.76]]
+saidas = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
-## Função de leitura das saídas no arquivo txt
-def leituraSaidas():
-    # Leitura do arquivo de saídas
-    ref_arq_saidas = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula10/saidas.txt","r")
-    saidas = []
-    for linha in ref_arq_saidas:
-        valores = linha.split()
-        saidas.append(float(valores[0]))
-    ref_arq_saidas.close()
-    print('Saídas: ')
-    print(saidas)
-    return saidas
+# Chamar classe e fazer treinamento das amostras 
+rede = Perceptron(amostras, saidas)
+rede.treinar()
 
-print("Início do Programa Perceptron")
-amostras = []
-saidas = []
-opcao = 999
-
-while opcao != 0:
-     print("***********************************")
-     print("Entre com a opcao:")
-     print(" --- 0: Sair do programa")
-     print(" --- 1: Ler os arquivos de dados")
-     print(" --- 2: Treinar")
-     print(" --- 3: Testar")
-     print(" --- 4: Ler e treinar")
-     print("***********************************")
-     opcao = int(input("-> "))
-
-     if opcao == 1:
-        amostras = leituraAmostras()
-        saidas = leituraSaidas()
-
-        # Chamar classe e fazer input das amostras e saídas
-        rede = Perceptron(amostras, saidas)
-
-     elif opcao == 2:
-        # Treinando a rede com 100 épocas
-        rede.treinar()
-
-     elif opcao == 3:
-        # Entrando com amostra para teste
-        x = float(input(" Informe o valor 1 da amostra -> "))
-        y = float(input(" Informe o valor 2 da amostra -> "))
-        rede.teste([x, y])
-
-     elif opcao == 4:
-        amostras = leituraAmostras()
-        saidas = leituraSaidas()
-
-        # Chamar classe e fazer input das amostras e saídas
-        rede = Perceptron(amostras, saidas)
-        rede.treinar()
-
-     elif opcao == 0:
-          break
+# Entrando com amostra para teste
+rede.teste([0.46, 0.80])
+rede.teste([-0.77, -0.76])

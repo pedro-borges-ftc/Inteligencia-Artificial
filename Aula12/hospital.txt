@@ -1,0 +1,8 @@
+4201	João	28	M	79	Concentradas 	38.0	2	SP	Doente
+3217	Maria	18	F	67	Inexistentes	39.5	4	MG	Doente
+4039	Luiz	49	M	92	Espalhadas	    38.0	2	RS	Saudável
+1920	José	18	M	43	Inexistentes	38.5	8	MG	Doente
+4340	Cláudia	21	F	52	Uniformes	    37.6	1	PE	Saudável
+2301	Ana	    22	F	72	Inexistentes	38.0	3	RJ	Doente
+1322	Marta	19	F	87	Espalhadas	    39.0	6	AM	Doente
+3027	Paulo	34	M	67	Uniformes	    38.4	2	GO	Saudável

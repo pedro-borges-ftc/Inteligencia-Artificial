@@ -1,111 +1,74 @@
-import numpy as np
-import statistics
-import matplotlib.pyplot as plt
+from perceptron import Perceptron
 
-## Variáveis globais
-idades = []
-sexos = []
-pesos = []
-temperaturas = []
-nomes = []
-
-## Função de leitura dos dados no arquivo txt
-def lerArquivo():
-    print("Início da leitura do arquivo")
-    ref_arq_hospital = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula11/hospital.txt","r")
-    #ref_arq_hospital = open("C:/Users/Pedro/Projetos VSCode/Inteligencia-Artificial/Aula11/hospital.txt","r")
-    for linha in ref_arq_hospital:
+## Função de leitura das amostras no arquivo txt
+def leituraAmostras():
+        # Leitura do arquivo de dados de amostras
+    ref_arq_amostras = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula10/amostras.txt","r")
+    amostras = []
+    for linha in ref_arq_amostras:
+        amostra = []
         valores = linha.split()
-        print(valores)
-        nomes.append(valores[1])
-        idades.append(float(valores[2]))
-        sexos.append(valores[3])
-        pesos.append(float(valores[4]))
-        temperaturas.append(float(valores[6]))
- 
-    ref_arq_hospital.close()
-    print("Fim da leitura do arquivo")
+        amostra.insert(0,float(valores[0]))
+        amostra.insert(1,float(valores[1]))
+        amostras.append(amostra)
+    ref_arq_amostras.close()
+    print('Amostras: ')
+    print(amostras)
+    return amostras
 
-## Função de impressão dos dados lidos no arquivo
-def imprimirDados():
-    print("******DADOS LIDOS NO ARQUIVO*******")
-    print("Nomes: ",nomes)
-    print("Idades: ",idades)
-    print("Sexos: ",sexos)
-    print("Pesos: ",pesos)
-    print("Temperaturas: ",temperaturas)
+## Função de leitura das saídas no arquivo txt
+def leituraSaidas():
+    # Leitura do arquivo de saídas
+    ref_arq_saidas = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula10/saidas.txt","r")
+    saidas = []
+    for linha in ref_arq_saidas:
+        valores = linha.split()
+        saidas.append(float(valores[0]))
+    ref_arq_saidas.close()
+    print('Saídas: ')
+    print(saidas)
+    return saidas
 
-## Função para o cálculo das médias
-def calcularMedias():
-    print("******Médias*******")
-    print("Idades: ",np.average(idades))
-    print("Pesos: ",np.average(pesos))
-    print("Temperaturas: ",np.average(temperaturas))
-
-## Função para o cálculo do desvio padrão
-def calcularDesvioPadrao():
-    print("******Desvio Padrão*******")
-    print("Idades: ",np.std(idades))
-    print("Pesos: ",np.std(pesos))
-    print("Temperaturas: ",np.std(temperaturas))
-
-## Função para o cálculo das variâncias
-def calcularVariancias():
-    print("******Variâncias*******")
-    print("Idades: ",np.var(idades))
-    print("Pesos: ",np.var(pesos))
-    print("Temperaturas: ",np.var(temperaturas))
-
-## Função para o cálculo das modas
-def calcularModas():
-    print("******Modas*******")
-    print("Sexos: ") 
-    print(statistics.mode(sexos))
-    print("Nomes: ") 
-    print(statistics.mode(nomes))
-
-## INÍCIO DO PROGRAMA
-print("Início do Programa Hospital")
+print("Início do Programa Perceptron")
+amostras = []
+saidas = []
 opcao = 999
 
 while opcao != 0:
-    print("***********************************")
-    print("Entre com a opcao:")
-    print(" --- 0: Sair do programa")
-    print(" --- 1: Ler o arquivo de dados")
-    print(" --- 2: Imprimir os dados lidos")
-    print(" --- 3: Calcular médias")
-    print(" --- 4: Calcular modas")
-    print(" --- 5: Calcular desvio padrão")
-    print(" --- 6: Calcular variâncias")
-    print(" --- 7: Gráfico Idades X Pesos")
-    print(" --- 8: Gráfico Nomes X Temperaturas")
-    print("***********************************")
-    opcao = int(input("-> "))
+     print("***********************************")
+     print("Entre com a opcao:")
+     print(" --- 0: Sair do programa")
+     print(" --- 1: Ler os arquivos de dados")
+     print(" --- 2: Treinar")
+     print(" --- 3: Testar")
+     print(" --- 4: Ler e treinar")
+     print("***********************************")
+     opcao = int(input("-> "))
 
-    if opcao == 1:
-       lerArquivo()
-    elif opcao == 2:
-       imprimirDados()
-    elif opcao == 3:
-       calcularMedias()
-    elif opcao == 4:
-       calcularModas()
-    elif opcao == 5:
-       calcularDesvioPadrao()
-    elif opcao == 6:
-       calcularVariancias()
-    elif opcao == 7:
-        #Gráfico X , Y
-        plt.xlabel('Idades')
-        plt.ylabel('Pesos')
-        plt.plot(idades, pesos, 'go')
-        plt.show()
-    elif opcao == 8:
-        #Gráfico X , Y
-        plt.xlabel('Nomes')
-        plt.ylabel('Temperaturas')
-        plt.plot(nomes, temperaturas)
-        plt.show()
-    elif opcao == 0:
+     if opcao == 1:
+        amostras = leituraAmostras()
+        saidas = leituraSaidas()
+
+        # Chamar classe e fazer input das amostras e saídas
+        rede = Perceptron(amostras, saidas)
+
+     elif opcao == 2:
+        # Treinando a rede com 100 épocas
+        rede.treinar()
+
+     elif opcao == 3:
+        # Entrando com amostra para teste
+        x = float(input(" Informe o valor 1 da amostra -> "))
+        y = float(input(" Informe o valor 2 da amostra -> "))
+        rede.teste([x, y])
+
+     elif opcao == 4:
+        amostras = leituraAmostras()
+        saidas = leituraSaidas()
+
+        # Chamar classe e fazer input das amostras e saídas
+        rede = Perceptron(amostras, saidas)
+        rede.treinar()
+
+     elif opcao == 0:
           break
