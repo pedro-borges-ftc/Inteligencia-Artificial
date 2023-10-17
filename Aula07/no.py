@@ -1,9 +1,9 @@
 # Criado por: prof. Pedro Borges
-# pborges.ita@ftc.edu.br
+# pedro.borges@ftc.edu.br
 
 class No:
     #Construtor da classe Pessoa
-    def __init__(self, key, dir, esq):
+    def __init__(self, key, direita, esquerda):
         self.item = key
-        self.dir = dir
-        self.esq = esq
+        self.dir = direita
+        self.esq = esquerda

@@ -15,6 +15,5 @@ class PessoaJuridica(Pessoa):
     def imprimePessoaJuridica(self):
         print('Olá ' + self.nome + '. Seja bem vindo ao curso de Python.')
         print('---------------------------')
-        print('Nome: ' + self.nome)
-        print('Idade: ' + self.idade)
+        self.imprime()
         print('CNPJ: ' + self.cnpj)

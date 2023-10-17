@@ -15,6 +15,5 @@ class PessoaFisica(Pessoa):
     def imprimePessoaFisica(self):
         print('Olá ' + self.nome + '. Seja bem vindo ao curso de Python.')
         print('---------------------------')
-        print('Nome: ' + self.nome)
-        print('Idade: ' + self.idade)
+        self.imprime()
         print('CPF: ' + self.cpf)
