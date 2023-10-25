@@ -3,7 +3,7 @@ from perceptron import Perceptron
 ## Função de leitura das amostras no arquivo txt
 def leituraAmostras():
         # Leitura do arquivo de dados de amostras
-    ref_arq_amostras = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula10/amostras.txt","r")
+    ref_arq_amostras = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula11/amostras.txt","r")
     amostras = []
     for linha in ref_arq_amostras:
         amostra = []
@@ -19,7 +19,7 @@ def leituraAmostras():
 ## Função de leitura das saídas no arquivo txt
 def leituraSaidas():
     # Leitura do arquivo de saídas
-    ref_arq_saidas = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula10/saidas.txt","r")
+    ref_arq_saidas = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula11/saidas.txt","r")
     saidas = []
     for linha in ref_arq_saidas:
         valores = linha.split()
