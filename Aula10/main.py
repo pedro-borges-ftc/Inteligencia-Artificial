@@ -10,3 +10,4 @@ rede.treinar()
 # Entrando com amostra para teste
 rede.teste([0.46, 0.80])
 rede.teste([-0.77, -0.76])
+rede.teste([0.72, 0.82])

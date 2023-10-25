@@ -52,7 +52,7 @@ class Perceptron:
                     # Calcular o erro
                     erro_aux = self.saidas[i] - y
                     # Fazer o ajuste dos pesos para cada elemento da amostra
-                    for j in range(self.n_atributos + 1):
+                    for j in range(self.n_atributos + self.limiar):
                         self.pesos[j] = self.pesos[j] + self.taxa_aprendizado * erro_aux
                     # Atualizar variável erro, já que erro é diferente de zero (e 
                     erro = True
@@ -71,7 +71,7 @@ class Perceptron:
         # Inicializar potencial de ativação 
         u = 0
         # Para cada atributo...
-        for i in range(self.n_atributos + 1):
+        for i in range(self.n_atributos + self.limiar):
             # Multiplicar amostra e seu peso e também somar com o potencial que já tinha
             u += self.pesos[i] * amostra[i]
             # Obter a saída da rede considerando g a função sinal
