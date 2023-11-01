@@ -6,7 +6,7 @@ import random
 class Perceptron: 
 ## Primeira função de uma classe (método construtor de objetos) 
 ## self é um parâmetro obrigatório que receberá a instância criada 
-    def __init__(self, amostras, saidas, taxa_aprendizado = 0.01, epocas = 13, limiar = 1) -> None:
+    def __init__(self, amostras, saidas, taxa_aprendizado = 0.01, epocas = 10000, limiar = 1) -> None:
         self.amostras = amostras
         self.saidas = saidas
         self.taxa_aprendizado = taxa_aprendizado
