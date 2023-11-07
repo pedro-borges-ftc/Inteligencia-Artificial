@@ -12,7 +12,7 @@ nomes = []
 ## Função de leitura dos dados no arquivo txt
 def lerArquivo():
     print("Início da leitura do arquivo")
-    ref_arq_hospital = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula11/hospital.txt","r")
+    ref_arq_hospital = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula12/hospital.txt","r")
     #ref_arq_hospital = open("C:/Users/Pedro/Projetos VSCode/Inteligencia-Artificial/Aula11/hospital.txt","r")
     for linha in ref_arq_hospital:
         valores = linha.split()
