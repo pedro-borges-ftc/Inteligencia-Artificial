@@ -7,23 +7,23 @@ import os
 ## Função para ouvir e reconhecer a fala
 def ouvir_microfone():
     #Habilita o microfone
-    microfone = sr.Recognizer()
+    mic = sr.Recognizer()
 
     #usando o microfone
     with sr.Microphone() as source:
 
         #chama algoritmo de redução de ruídos
-        microfone.adjust_for_ambient_noise(source)
+        mic.adjust_for_ambient_noise(source)
 
         #frase para solicitar que o usuário diga algo
         print("Diga alguma coisa: ")
 
         #leitura e armazenamento do que foi dito
-        audio = microfone.listen(source)
+        audio = mic.listen(source)
 
     try:
         #passa a variável para o algoritmo reconhecedor de padrões
-        frase = microfone.recognize_google(audio,language='pt-BR')
+        frase = mic.recognize_google(audio,language='pt-BR')
 
         if "anotações" in frase:
             os.system("open /Users/viniciussouza/Documents/Anotações.txt")

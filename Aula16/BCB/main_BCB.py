@@ -41,7 +41,7 @@ def ConversorMoedas():
     print('*** Conversor de Moedas ***')
     df = currency.get(['USD', 'EUR', 'CNY', 'GBP'],     
                   start='2023-01-01',
-                  end='2023-08-01',
+                  end='2023-11-01',
                   side='ask')
     print(df.head())
     df.plot(figsize=(12, 6))
