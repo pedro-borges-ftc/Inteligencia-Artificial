@@ -9,9 +9,11 @@ cpf = input('Digite o seu cpf: ')
 
 #Importação da classe Pessoa Física
 pessoa_teste = PessoaFisica(cpf,nome,idade)
-cliente_teste = Cliente(cpf,nome,idade,1)
+#cliente_teste = Cliente(cpf,nome,idade,1)
 
 #Mostre uma mensagem de boas-vindas de acordo com o valor digitado.
+pessoa_teste.setIdade(39)
+pessoa_teste.imprimeJunto()
 pessoa_teste.imprimePessoaFisica()
-cliente_teste.setNome('Fulano')
-cliente_teste.imprimePessoaFisica()
+#cliente_teste.setNome('Fulano')
+#cliente_teste.imprimePessoaFisica()

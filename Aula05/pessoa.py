@@ -19,3 +19,6 @@ class Pessoa:
     def imprime(self):
         print('Nome: ' + self.nome)
         print('Idade: ' + str(self.idade))
+
+    def imprimeJunto(self):
+        print('Nome: ' + self.getNome() + ' Idade: ' + str(self.getIdade()))
