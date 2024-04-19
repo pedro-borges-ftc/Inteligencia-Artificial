@@ -58,8 +58,8 @@ while opcao != 0:
 
      elif opcao == 3:
         # Entrando com amostra para teste
-        x = float(input(" Informe o valor 1 da amostra -> "))
-        y = float(input(" Informe o valor 2 da amostra -> "))
+        x = float(input(" Informe o valor 1 da amostra Peso(g) -> "))
+        y = float(input(" Informe o valor 2 da amostra pH -> "))
         rede.teste([x, y])
 
      elif opcao == 4:
