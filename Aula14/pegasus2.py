@@ -2,7 +2,7 @@ from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot import ChatBot
 
-bot = ChatBot('Pégasus')
+bot = ChatBot('Pégasus2')
 conversa = ChatterBotCorpusTrainer(bot)
 conversa = ListTrainer(bot)
 
