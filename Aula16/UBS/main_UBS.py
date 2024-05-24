@@ -18,8 +18,8 @@ LONGITUDE = []
 ## Função de leitura dos dados no arquivo txt
 def lerArquivo():
     print("Início da leitura do arquivo")
-    ref_arq_UBS = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/UBS_Modificado.csv","r")
-    #ref_arq_UBS = open("C:/Users/Pedro/Projetos VSCode/Inteligencia-Artificial/Aula15/UBS/UBS_Modificado.csv","r")
+    ref_arq_UBS = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/UBS_Modificado.csv","r")
+    #ref_arq_UBS = open("C:/Users/Pedro/Projetos VSCode/Inteligencia-Artificial/Aula16/UBS/UBS_Modificado.csv","r")
     for linha in ref_arq_UBS:
         linha = linha.strip()
         valores = linha.split(';')
@@ -96,7 +96,7 @@ def ufPorCodigoIBGE(uf = ''):
 
 ## Função para exibir os código das UF
 def ImprimeUFsCodigos():    
-    ref_arq_UFs = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/Tabela-Codigo-UF-IBGE.txt","r")
+    ref_arq_UFs = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/Tabela-Codigo-UF-IBGE.txt","r")
     for ln in ref_arq_UFs:
         ln = ln.strip()
         valores = ln.split('\t')
@@ -119,9 +119,9 @@ def quantidadeUbsPorCidade(escolha = ''):
 
 ## Função: Leitura
 def processamentoDeDados():
-    df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/UBS_Modificado.csv")
-    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/UBS.csv")
-    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/distribuicao_respiradores.csv")
+    df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/UBS_Modificado.csv")
+    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/UBS.csv")
+    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/distribuicao_respiradores.csv")
 
     # carregando uma amostra de 5 registros
     print(df.head())
@@ -147,7 +147,7 @@ while opcao != 0:
     print(" --- 2: Qual a quantidade de UBS por estado?")
     print(" --- 3: Qual a quantidade de UBS na Bahia?")
     print(" --- 4: Qual a quantidade de UBS em Itabuna?")
-    #print(" --- 5: Processamento Dados")
+    print(" --- 5: Processamento Dados")
     print(" --- 6: Qual a quantidade de UBS por cidade?")
     print("***********************************")
     opcao = int(input("-> "))

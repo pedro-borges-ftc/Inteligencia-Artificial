@@ -39,9 +39,9 @@ def IPCA_acumulado():
 ## Função: Conversor de Moedas    #https://pt.wikipedia.org/wiki/ISO_4217
 def ConversorMoedas():
     print('*** Conversor de Moedas ***')
-    df = currency.get(['USD', 'EUR', 'CNY', 'GBP'],     
-                  start='2023-01-01',
-                  end='2023-11-01',
+    df = currency.get(['USD', 'EUR', 'CNY', 'GBP', 'ARS'],     
+                  start='2023-05-01',
+                  end='2024-04-01',
                   side='ask')
     print(df.head())
     df.plot(figsize=(12, 6))
