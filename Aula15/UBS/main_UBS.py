@@ -119,9 +119,9 @@ def quantidadeUbsPorCidade(escolha = ''):
 
 ## Função: Leitura
 def processamentoDeDados():
-    df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/UBS_Modificado.csv")
-    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/UBS.csv")
-    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/distribuicao_respiradores.csv")
+    df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/UBS_Modificado.csv")
+    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/UBS.csv")
+    #df = pd.read_csv("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/distribuicao_respiradores.csv")
 
     # carregando uma amostra de 5 registros
     print(df.head())
