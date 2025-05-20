@@ -18,8 +18,8 @@ LONGITUDE = []
 ## Função de leitura dos dados no arquivo txt
 def lerArquivo():
     print("Início da leitura do arquivo")
-    ref_arq_UBS = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/UBS_Modificado.csv","r")
-    #ref_arq_UBS = open("C:/Users/Pedro/Projetos VSCode/Inteligencia-Artificial/Aula16/UBS/UBS_Modificado.csv","r")
+    ref_arq_UBS = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/UBS_Modificado.csv","r")
+    #ref_arq_UBS = open("C:/Users/Pedro/Projetos VSCode/Inteligencia-Artificial/Aula15/UBS/UBS_Modificado.csv","r")
     for linha in ref_arq_UBS:
         linha = linha.strip()
         valores = linha.split(';')
@@ -96,7 +96,7 @@ def ufPorCodigoIBGE(uf = ''):
 
 ## Função para exibir os código das UF
 def ImprimeUFsCodigos():    
-    ref_arq_UFs = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula16/UBS/Tabela-Codigo-UF-IBGE.txt","r")
+    ref_arq_UFs = open("/Users/viniciussouza/Documents/Inteligencia-Artificial/Aula15/UBS/Tabela-Codigo-UF-IBGE.txt","r")
     for ln in ref_arq_UFs:
         ln = ln.strip()
         valores = ln.split('\t')
@@ -108,8 +108,8 @@ def ImprimeUFsCodigos():
 def quantidadeUbsPorUF(escolha = ''):
     if escolha == '':
         ImprimeUFsCodigos()
-        escolha = input("Digite o Código da Unidade Federativa: -->")
-    print(ufPorCodigoIBGE(escolha),": ",str(repr(UF).count(escolha)) , "UBSs")
+        escolha = input("Digite a Unidade Federativa (por extenso): -->")
+    print(escolha,": ",str(repr(UF).count(escolha)) , "UBSs")
 
 ## Função: Qual a quantidade de UBS por cidade?
 def quantidadeUbsPorCidade(escolha = ''):
@@ -153,11 +153,11 @@ while opcao != 0:
     opcao = int(input("-> "))
 
     if opcao == 1:
-       lerArquivo()
+        lerArquivo()
     elif opcao == 2:
-       quantidadeUbsPorUF()
+        quantidadeUbsPorUF()
     elif opcao == 3:
-        quantidadeUbsPorUF('29')    #bahia
+        quantidadeUbsPorUF('Bahia')    #bahia
     elif opcao == 4:
         quantidadeUbsPorCidade('291480')    #itabuna
     elif opcao == 5:
@@ -165,4 +165,4 @@ while opcao != 0:
     elif opcao == 6:
         quantidadeUbsPorCidade()
     elif opcao == 0:
-          break
+        break
